@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tu Agencia de IA | Automatización, Chatbots y Datos</title>
+  <meta name="description" content="Implementamos IA que ahorra tiempo y aumenta ventas: automatización, chatbots, analítica y flujos. Agenda una llamada." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Tu Agencia de IA" />
+  <meta property="og:description" content="IA práctica para negocios: automatización, chatbots, analítica y flujos. Agenda una llamada." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="#" />
+  <meta property="og:image" content="#" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#070A12;
+      --card:#0B1020;
+      --muted:#A7B0C0;
+      --text:#EAF0FF;
+      --line:rgba(255,255,255,.10);
+      --accent:#7C3AED;
+      --accent2:#22C55E;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius:18px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(124,58,237,.25), transparent 60%),
+        radial-gradient(700px 450px at 80% 30%, rgba(34,197,94,.18), transparent 55%),
+        radial-gradient(900px 550px at 50% 90%, rgba(59,130,246,.12), transparent 60%),
+        var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(7,10,18,.65);
+      border-bottom:1px solid var(--line);
+    }
+    .navin{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; gap:10px; align-items:center; font-weight:800; letter-spacing:.2px}
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, var(--accent), #3B82F6);
+      box-shadow: 0 10px 30px rgba(124,58,237,.35);
+    }
+    .links{display:flex; gap:18px; align-items:center}
+    .links a{color:var(--muted); font-weight:600; font-size:14px}
+    .links a:hover{color:var(--text)}
+    .cta{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:10px 14px; border-radius:14px;
+      background: linear-gradient(135deg, rgba(124,58,237,.95), rgba(59,130,246,.95));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: 0 18px 40px rgba(59,130,246,.18);
+      font-weight:700; font-size:14px;
+    }
+    .ghost{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:10px 14px; border-radius:14px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+      font-weight:700; font-size:14px;
+    }
+    .menuBtn{display:none}
+    .hero{padding:70px 0 10px}
+    .grid2{display:grid; grid-template-columns: 1.25fr .75fr; gap:22px}
+    .pill{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:7px 12px; border-radius:999px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+      color:var(--muted); font-weight:600; font-size:13px;
+    }
+    h1{font-size:46px; line-height:1.05; margin:16px 0 10px; letter-spacing:-.8px}
+    .sub{color:var(--muted); font-size:17px; line-height:1.55; margin:0 0 18px}
+    .heroActions{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+    .card{
+      background: rgba(11,16,32,.72);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .side{padding:18px}
+    .kpis{display:grid; grid-template-columns: 1fr; gap:12px; margin-top:14px}
+    .kpi{padding:14px; border-radius:16px; border:1px solid var(--line); background:rgba(255,255,255,.03)}
+    .kpi b{font-size:18px}
+    .kpi div{color:var(--muted); font-size:13px; margin-top:6px}
+
+    section{padding:40px 0}
+    .sectionTitle{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:14px}
+    .sectionTitle h2{margin:0; font-size:26px; letter-spacing:-.3px}
+    .sectionTitle p{margin:0; color:var(--muted); max-width:650px}
+    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+    .grid4{display:grid; grid-template-columns: repeat(4, 1fr); gap:12px}
+    .item{padding:18px}
+    .tag{display:inline-flex; font-size:12px; font-weight:700; color:#0B1020; background:rgba(34,197,94,.95); padding:6px 10px; border-radius:999px}
+    .tag2{background:rgba(124,58,237,.95); color:#0B1020}
+    .muted{color:var(--muted)}
+    .list{margin:10px 0 0; padding:0 0 0 18px; color:var(--muted); line-height:1.6}
+    .price{font-size:28px; font-weight:800; margin:10px 0}
+    .small{font-size:13px; color:var(--muted)}
+    .faq{padding:18px; border-top:1px solid var(--line)}
+    .faq:first-child{border-top:none}
+    details summary{cursor:pointer; font-weight:700}
+    details p{color:var(--muted); line-height:1.6}
+
+    .contactGrid{display:grid; grid-template-columns: 1fr 1fr; gap:14px}
+    .form{padding:18px}
+    label{display:block; font-weight:700; margin:10px 0 6px; font-size:13px}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:110px; resize:vertical}
+    .row{display:grid; grid-template-columns: 1fr 1fr; gap:10px}
+    .note{font-size:12px; color:var(--muted); line-height:1.45; margin-top:10px}
+    footer{padding:30px 0 45px; border-top:1px solid var(--line); color:var(--muted)}
+    .foot{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+
+    @media (max-width: 920px){
+      .grid2{grid-template-columns: 1fr}
+      h1{font-size:38px}
+      .grid3{grid-template-columns: 1fr}
+      .grid4{grid-template-columns: 1fr 1fr}
+      .contactGrid{grid-template-columns:1fr}
+    }
+    @media (max-width: 680px){
+      .links{display:none}
+      .menuBtn{display:inline-flex}
+      .grid4{grid-template-columns:1fr}
+      .row{grid-template-columns:1fr}
+    }
+  </style>
+
+  <!-- JSON-LD (SEO básico) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Tu Agencia de IA",
+    "url":"#",
+    "sameAs":[],
+    "contactPoint":[{
+      "@type":"ContactPoint",
+      "contactType":"sales",
+      "email":"hola@tudominio.com",
+      "telephone":"+50600000000"
+    }]
+  }
+  </script>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="wrap navin">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>Tu Agencia de IA</div>
+      </div>
+
+      <div class="links" id="navLinks">
+        <a href="#servicios">Servicios</a>
+        <a href="#casos">Casos</a>
+        <a href="#precios">Planes</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+
+      <div style="display:flex; gap:10px; align-items:center;">
+        <a class="ghost menuBtn" href="#menu" onclick="toggleMenu(event)">Menú</a>
+        <a class="ghost" href="#contacto">Cotizar</a>
+        <a class="cta" href="#contacto">Agenda una llamada</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap grid2">
+      <div>
+        <span class="pill">🚀 IA aplicada para negocios • Automatización • Chatbots • Datos</span>
+        <h1>Hacemos que la IA <span style="color:#C4B5FD;">trabaje</span> en tu negocio (sin humo).</h1>
+        <p class="sub">
+          Implementamos soluciones prácticas: atención 24/7 con chatbots, automatización de procesos, reportes y analítica,
+          integraciones con tus herramientas (Sheets, WhatsApp, CRM, email) y flujos con n8n/Zapier.
+        </p>
+
+        <div class="heroActions">
+          <!-- Cambiá este WhatsApp -->
+          <a class="cta" href="https://wa.me/506XXXXXXXX?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20para%20IA%20en%20mi%20negocio" target="_blank" rel="noopener">WhatsApp</a>
+
+          <!-- Cambiá este link a tu Calendly si querés -->
+          <a class="ghost" href="https://calendly.com/" target="_blank" rel="noopener">Reservar 15 min</a>
+
+          <a class="ghost" href="#servicios">Ver servicios</a>
+        </div>
+
+        <p class="note">
+          💡 Tip: aunque el hosting sea gratis, un dominio propio (tumarca.com) sube muchísimo la credibilidad.
+        </p>
+      </div>
+
+      <aside class="card side">
+        <div class="tag tag2">Entrega rápida</div>
+        <h3 style="margin:10px 0 6px; font-size:18px;">En 7–14 días podés tener:</h3>
+        <ul class="list">
+          <li>Chatbot para consultas frecuentes y calificación de leads</li>
+          <li>Automatizaciones (cotizaciones, seguimiento, recordatorios)</li>
+          <li>Dashboard / reporte (ventas, leads, operación) en Sheets o BI</li>
+          <li>Landing de captación + formulario + WhatsApp</li>
+        </ul>
+
+        <div class="kpis">
+          <div class="kpi">
+            <b>+Velocidad</b>
+            <div>Menos trabajo manual con flujos automatizados.</div>
+          </div>
+          <div class="kpi">
+            <b>+Ventas</b>
+            <div>Leads mejor atendidos y seguimiento constante.</div>
+          </div>
+          <div class="kpi">
+            <b>+Control</b>
+            <div>Datos claros para decidir más rápido.</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <section id="servicios">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <div>
+          <h2>Servicios</h2>
+          <p>Paquetes claros, orientados a resultados. Elegí una entrada rápida o un acompañamiento mensual.</p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card item">
+          <span class="tag">Chatbots</span>
+          <h3 style="margin:10px 0 6px;">Atención 24/7 + Captación</h3>
+          <p class="muted">Web, WhatsApp (según proveedor), Instagram (según integración). Respuestas, FAQs, captura de datos y handoff a humano.</p>
+          <ul class="list">
+            <li>Guiones + base de conocimiento</li>
+            <li>Formulario inteligente de leads</li>
+            <li>Derivación a WhatsApp / email</li>
+          </ul>
+        </div>
+
+        <div class="card item">
+          <span class="tag tag2">Automatización</span>
+          <h3 style="margin:10px 0 6px;">Procesos sin fricción</h3>
+          <p class="muted">n8n / Zapier / Make: cotizaciones, seguimientos, recordatorios, tickets, facturación/inventario (si aplica).</p>
+          <ul class="list">
+            <li>Integración con Google Sheets</li>
+            <li>Notificaciones por email/WhatsApp</li>
+            <li>Logs y monitoreo básico</li>
+          </ul>
+        </div>
+
+        <div class="card item">
+          <span class="tag">Datos</span>
+          <h3 style="margin:10px 0 6px;">Dashboards y reportes</h3>
+          <p class="muted">Métricas accionables: ventas, leads, productividad, operaciones. En Sheets, Looker, Power BI o lo que uses.</p>
+          <ul class="list">
+            <li>Definición de KPIs</li>
+            <li>Panel semanal/mensual</li>
+            <li>Alertas automáticas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="casos">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <div>
+          <h2>Casos / ejemplos (plantilla)</h2>
+          <p>Mientras conseguís tus primeros clientes, usá “casos demo” con números realistas y proceso claro.</p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card item">
+          <h3 style="margin:0 0 6px;">Restaurante</h3>
+          <p class="muted">Bot de WhatsApp + reservas + recordatorios + hoja de control.</p>
+          <ul class="list">
+            <li>Menos mensajes repetidos</li>
+            <li>Reservas ordenadas</li>
+            <li>Seguimiento automático</li>
+          </ul>
+        </div>
+        <div class="card item">
+          <h3 style="margin:0 0 6px;">Tienda / ecommerce</h3>
+          <p class="muted">Chatbot + recuperación de carritos + FAQ + tickets.</p>
+          <ul class="list">
+            <li>Atención 24/7</li>
+            <li>Soporte más rápido</li>
+            <li>Mejor conversión</li>
+          </ul>
+        </div>
+        <div class="card item">
+          <h3 style="margin:0 0 6px;">Servicios profesionales</h3>
+          <p class="muted">Lead scoring + agenda + propuesta automática.</p>
+          <ul class="list">
+            <li>Leads calificados</li>
+            <li>Agenda llena</li>
+            <li>Menos tiempo administrativo</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="note">
+        Si querés, después te armo 3 “casos demo” con textos y métricas bien creíbles para tu nicho (CR/LATAM).
+      </p>
+    </div>
+  </section>
+
+  <section id="precios">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <div>
+          <h2>Planes</h2>
+          <p>Podés empezar con un proyecto único y luego pasar a mantenimiento mensual.</p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card item">
+          <span class="tag">Starter</span>
+          <h3 style="margin:10px 0 6px;">Arranque</h3>
+          <div class="price">Desde $___</div>
+          <div class="small">1 entrega • 7–10 días</div>
+          <ul class="list">
+            <li>Landing + WhatsApp</li>
+            <li>1 automatización</li>
+            <li>Formulario de leads</li>
+          </ul>
+        </div>
+
+        <div class="card item" style="border:1px solid rgba(124,58,237,.6);">
+          <span class="tag tag2">Growth</span>
+          <h3 style="margin:10px 0 6px;">Crecimiento</h3>
+          <div class="price">Desde $___</div>
+          <div class="small">Proyecto + ajustes • 10–14 días</div>
+          <ul class="list">
+            <li>Chatbot + base de conocimiento</li>
+            <li>2–4 automatizaciones</li>
+            <li>Dashboard básico</li>
+          </ul>
+        </div>
+
+        <div class="card item">
+          <span class="tag">Scale</span>
+          <h3 style="margin:10px 0 6px;">Operación</h3>
+          <div class="price">Mensual $___</div>
+          <div class="small">Soporte + mejoras continuas</div>
+          <ul class="list">
+            <li>Monitoreo y optimización</li>
+            <li>Nuevos flujos cada mes</li>
+            <li>Reporte de impacto</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="note">Tip: para verte más pro, mostrás “desde” y aclarás que depende de alcance.</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <div>
+          <h2>Preguntas frecuentes</h2>
+          <p>Te ayuda a cerrar ventas sin estar explicando lo mismo por WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="faq">
+          <details>
+            <summary>¿Cuánto tarda implementar?</summary>
+            <p>Depende del alcance. Un “Starter” puede salir en 7–10 días si ya tenemos textos, FAQs y objetivo claro.</p>
+          </details>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>¿Necesito cambiar mis sistemas?</summary>
+            <p>No necesariamente. Normalmente integramos con lo que ya usás (Sheets, correo, CRM, etc.).</p>
+          </details>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>¿Cómo miden resultados?</summary>
+            <p>Definimos KPIs (leads, tiempo ahorrado, conversión, tickets resueltos) y los mostramos en un dashboard.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <div>
+          <h2>Contacto</h2>
+          <p>Dejá tus datos y te respondo con un plan rápido (y costo estimado) en 24–48h.</p>
+        </div>
+      </div>
+
+      <div class="contactGrid">
+        <div class="card form">
+          <h3 style="margin:0 0 8px;">Formulario (opción A: Formspree)</h3>
+          <p class="muted" style="margin:0 0 10px;">
+            Para que funcione, creá una cuenta en Formspree y reemplazá el <b>action</b>.
+          </p>
+
+          <!-- Formspree: Free tier suele empezar con 50 envíos/mes. -->
+          <form action="https://formspree.io/f/TU_ID" method="POST">
+            <div class="row">
+              <div>
+                <label>Nombre</label>
+                <input name="nombre" placeholder="Tu nombre" required>
+              </div>
+              <div>
+                <label>WhatsApp</label>
+                <input name="whatsapp" placeholder="+506 ____ ____" required>
+              </div>
+            </div>
+
+            <label>Email</label>
+            <input name="email" type="email" placeholder="tu@correo.com" required>
+
+            <label>¿Qué querés lograr con IA?</label>
+            <textarea name="mensaje" placeholder="Ej: automatizar cotizaciones, responder FAQs, dashboard de ventas..." required></textarea>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+              <button class="cta" type="submit" style="cursor:pointer;">Enviar</button>
+              <a class="ghost" href="https://wa.me/506XXXXXXXX" target="_blank" rel="noopener">Escribirme por WhatsApp</a>
+            </div>
+
+            <p class="note">
+              Nota: Si querés algo 100% gratis sin límites típicos de formularios, usá Tally (opción B) y pegás un embed.
+            </p>
+          </form>
+        </div>
+
+        <div class="card form">
+          <h3 style="margin:0 0 8px;">Opción B: Tally (gratis)</h3>
+          <p class="muted" style="margin:0 0 10px;">
+            Tally ofrece formularios y envíos “ilimitados” en su plan gratis (con política de uso justo). Reemplazá el link.
+          </p>
+
+          <a class="cta" href="https://tally.so/r/TU_FORM" target="_blank" rel="noopener">Abrir formulario Tally</a>
+          <div style="height:12px"></div>
+
+          <!-- Si preferís embed, descomentá y poné tu URL:
+          <iframe data-tally-src="https://tally.so/r/TU_FORM" loading="lazy" width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0" title="Contacto"></iframe>
+          <script>var d=document,w="https://tally.so/widgets/embed.js",v=d.querySelector('script[src="'+w+'"]'); if(!v){var s=d.createElement("script"); s.src=w; s.defer=true; d.body.appendChild(s);}</script>
+          -->
+
+          <div style="height:14px"></div>
+          <h3 style="margin:0 0 8px;">Agendar llamada</h3>
+          <p class="muted" style="margin:0 0 10px;">Poné tu link de Calendly (o similar) para cerrar leads más rápido.</p>
+          <a class="ghost" href="https://calendly.com/" target="_blank" rel="noopener">Reservar 15 min</a>
+
+          <div style="height:14px"></div>
+          <p class="note">
+            Email: <span id="email">hola@tudominio.com</span> • Tel: +506 ____ ____
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot">
+      <div>
+        <b>Tu Agencia de IA</b><br>
+        <span class="muted">Automatización • Chatbots • Datos</span>
+      </div>
+      <div class="muted">
+        © <span id="year"></span> • <a href="#contacto">Contacto</a> • <a href="#faq">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    function toggleMenu(e){
+      e.preventDefault();
+      const links = document.getElementById("navLinks");
+      if(!links) return;
+      const isHidden = getComputedStyle(links).display === "none";
+      links.style.display = isHidden ? "flex" : "none";
+      links.style.flexDirection = "column";
+      links.style.gap = "10px";
+      links.style.padding = "12px 0";
+    }
+  </script>
+</body>
+</html>
